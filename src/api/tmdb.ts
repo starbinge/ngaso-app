@@ -2,7 +2,7 @@ import type { Movie, TVShow, MovieDetail, TVShowDetail, PaginatedResponse, Seaso
 import { countries } from './countries';
 
 const BASE_URL = 'https://api.themoviedb.org/3';
-const TOKEN = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2NTU0ZDQ4OTRhMDAzMDE3NmI4ZWJhNGYzZWE2MDkxMSIsIm5iZiI6MTc3ODMxNzU2NC40MDYwMDAxLCJzdWIiOiI2OWZlZjhmY2VlMmEzNGI5OTM1NzIxODMiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.gnq5H4O4gz40NNwOnwFfhf5ZOQzDjU5VtJA_1LyGWoY';
+const TOKEN = `Bearer ${import.meta.env.VITE_TMDB_TOKEN}`;
 
 const headers = { accept: 'application/json', Authorization: TOKEN };
 
