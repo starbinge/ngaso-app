@@ -1,10 +1,13 @@
 import type { Movie, TVShow, MovieDetail, TVShowDetail, PaginatedResponse, Season, Episode, Genre } from '../types/tmdb';
 import { countries } from './countries';
 
-const BASE_URL = '/api';
+const BASE_URL = 'https://api.themoviedb.org/3';
+const TOKEN = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2NTU0ZDQ4OTRhMDAzMDE3NmI4ZWJhNGYzZWE2MDkxMSIsIm5iZiI6MTc3ODMxNzU2NC40MDYwMDAxLCJzdWIiOiI2OWZlZjhmY2VlMmEzNGI5OTM1NzIxODMiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.gnq5H4O4gz40NNwOnwFfhf5ZOQzDjU5VtJA_1LyGWoY';
+
+const headers = { accept: 'application/json', Authorization: TOKEN };
 
 async function fetchJson<T>(url: string): Promise<T> {
-  const res = await fetch(url);
+  const res = await fetch(url, { headers });
   if (!res.ok) throw new Error(`TMDB error: ${res.status}`);
   return res.json();
 }
